@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-card>
+    <form>
+      <div class="row">
+        first name :
+        <mat-form-field appearance="fill">
+          <mat-label>first name</mat-label>
+          <input matInput type="text" [(ngModel)]="user.fname" name="fname" />
+        </mat-form-field>
+      </div>
+      <br />
+      <div class="row">
+        last name :
+        <mat-form-field appearance="fill">
+          <mat-label>last name</mat-label>
+          <input matInput type="text" [(ngModel)]="user.lname" name="lname" />
+        </mat-form-field>
+      </div>
+
+      <br />
+      <div class="row">
+        email :
+        <mat-form-field appearance="fill">
+          <mat-label>email</mat-label>
+          <input matInput type="text" [(ngModel)]="user.email" name="email" />
+        </mat-form-field>
+      </div>
+      <br />
+      <button mat-button color="primary" (click)="save()">
+        {{ actionBtn }}
+      </button>
+      |
+      <button mat-button color="accent" (click)="delete()">delete</button>
+    </form>
+  </mat-card>
+</div>

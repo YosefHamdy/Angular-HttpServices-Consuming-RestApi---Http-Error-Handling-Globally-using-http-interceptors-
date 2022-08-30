@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fname": "Yosef",
+      "lname": "Hamdy",
+      "email": "mmas@hh.com"
+    },
+    {
+      "id": 2,
+      "fname": "Jacky",
+      "lname": "Jack",
+      "email": "jacky@hh.com"
+    },
+    {
+      "id": 3,
+      "fname": "febby",
+      "lname": "fab",
+      "email": "febby@hh.com"
+    },
+    {
+      "id": 4,
+      "fname": "shozy",
+      "lname": "shose",
+      "email": "shosy@hh.com"
+    },
+    {
+      "id": 5,
+      "fname": "mecky",
+      "lname": "mack",
+      "email": "nugget@hh.com"
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "name": "microsoft"
+    },
+    {
+      "id": 1,
+      "name": "EJ"
+    }
+  ]
+}
