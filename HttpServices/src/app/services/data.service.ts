@@ -15,79 +15,19 @@ export class DataService<T> {
   ) {}
   // user
   get(): Observable<T> {
-    return this.http.get<T>(this.configURL).pipe(
-      // retry operator method executed when an failure in api happen so
-      // before show error response will "try 3 times the process"
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http.get<T>(this.configURL);
   }
   // userDetails
   getById(id: number): Observable<T> {
-    return this.http.get<T>(this.configURL + `/${id}`).pipe(
-      // retry operator method executed when an failure in api happen so
-      // before show error response will "try 3 times the process"
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http.get<T>(this.configURL + `/${id}`);
   }
   post(model: T): Observable<T> {
-    return this.http.post<T>(this.configURL, model).pipe(
-      // retry operator method executed when an failure in api happen so
-      // before show error response will "try 3 times the process"
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http.post<T>(this.configURL, model);
   }
   put(id: number, model: T): Observable<T> {
-    return this.http.put<T>(this.configURL + `/${id}`, model).pipe(
-      // retry operator method executed when an failure in api happen so
-      // before show error response will "try 3 times the process"
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http.put<T>(this.configURL + `/${id}`, model);
   }
   delete(id: number): Observable<T> {
-    return this.http.delete<T>(this.configURL + `/${id}`).pipe(
-      // retry operator method executed when an failure in api happen so
-      // before show error response will "try 3 times the process"
-      retry(3),
-      catchError(this.handleError)
-    );
-  }
-
-  /// handlig error in service then call it inside pipe in endpoints
-  private handleError(err: any) {
-    let errorMsg: string;
-    // ErrorEvent "Source of error" possible or can be come from frontend or backend
-    if (err.error instanceof ErrorEvent) {
-      errorMsg = `Error: ${err.message}`;
-    } else {
-      errorMsg = this.getServerErrorMessage(err);
-    }
-    // rethrow the error to the component
-    return throwError(errorMsg);
-  }
-
-  private getServerErrorMessage(error: HttpErrorResponse): string {
-    switch (error.status) {
-      case 404: {
-        console.log('Here is the errrr 404 404');
-        return `Not Found:${error.message}`;
-        // here return type possible to be "not found class" that you can create
-        // or navigate to NotFound component
-      }
-      case 403: {
-        return `Access Denied: ${error.message}`;
-        // or navigate to Forbidden component
-      }
-      case 500: {
-        return `Internal Server Error: ${error.message}`;
-        // or .........
-      }
-      default: {
-        return `Unknown Server Error`;
-      }
-    }
+    return this.http.delete<T>(this.configURL + `/${id}`);
   }
 }
