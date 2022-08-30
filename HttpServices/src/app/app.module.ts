@@ -42,6 +42,7 @@ import { HandleErrorInterceptor } from '../../../HttpServices/src/app/intercepto
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HandleErrorInterceptor,
+      // multi: true : mean that we tell angular that it may be more an inerceptor class use "multiple classes"
       multi: true,
     },
   ],

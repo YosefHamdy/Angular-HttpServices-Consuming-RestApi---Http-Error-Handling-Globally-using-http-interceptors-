@@ -19,7 +19,7 @@ export class HandleErrorInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    // global handling should configure this interceptor into app.module and done ....
+    // global handling should configure this interceptor into app.module in providers and done ....
     return next.handle(request).pipe(retry(3), catchError(this.handleError));
   }
 
